@@ -21,6 +21,10 @@ const DESCRIPTION_REQUIRED = "Description is required";
 
 const DURATION_REQUIRED = "Duration is required";
 
+const DURATION_MUST_BE_POSITIVE_NUMBER = "Duration must be a positive number";
+
+const INVALID_DATE = "Invalid date";
+
 module.exports = {
   DATABASE_CONNECTED,
   DATABASE_CONNECTION_ERROR,
@@ -33,4 +37,6 @@ module.exports = {
   DESCRIPTION_AND_DURATION_REQUIRED,
   DESCRIPTION_REQUIRED,
   DURATION_REQUIRED,
+  DURATION_MUST_BE_POSITIVE_NUMBER,
+  INVALID_DATE,
 };
