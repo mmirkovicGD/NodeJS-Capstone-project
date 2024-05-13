@@ -98,7 +98,7 @@ class ExercisesController {
         params.push(to);
       }
 
-      newQuery += " ORDER BY date ACS";
+      newQuery += " ORDER BY date ASC";
 
       if (limit) {
         newQuery += " LIMIT ?";
