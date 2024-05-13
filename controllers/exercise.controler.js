@@ -7,9 +7,16 @@ class ExercisesController {
     const userId = req._id;
 
     const { description, duration, date } = req.body;
-    db.get(query.SELECT_EXERCISES_BY_USER_ID, [userId], (err, row) => {
+
+    db.get(query.SELECT_USER_BY_ID, [userId], (err, row) => {
       if (err) {
         return res.status(500).json({ error: err.message });
+      }
+
+      if (!row) {
+        return res.status(400).json({
+          error: message.USER_NOT_FOUND,
+        });
       }
 
       if (!description && !duration) {
