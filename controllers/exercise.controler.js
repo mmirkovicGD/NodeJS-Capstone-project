@@ -116,20 +116,17 @@ class ExercisesController {
         newQuery += " AND date <= ?";
         params.push(to);
       }
-
       newQuery += " ORDER BY date ASC";
-
-      if (limit) {
-        newQuery += " LIMIT ?";
-        params.push(limit);
-      }
 
       db.all(newQuery, params, (err, rows) => {
         if (err) {
           return res.status(500).json({ error: err.message });
         }
-        let count = rows?.length;
-        res.json({ userId, logs: rows, count: count });
+        const cnt = rows.length;
+        if (limit) {
+          rows = rows.slice(0, limit);
+        }
+        res.json({ userId, logs: rows, count: cnt });
       });
     });
   };
